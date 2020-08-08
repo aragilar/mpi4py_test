@@ -26,4 +26,4 @@ before_install:
 install:
   - pip install mpi4py==$MPI4PY_VERSION pytest
 script:
-  - python -m pytest --pyargs mpi4py
+  - mpiexec -n 5 python -m mpi4py.bench helloworld
