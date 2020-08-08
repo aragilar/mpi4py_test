@@ -1,0 +1,29 @@
+language: python
+
+dist: xenial
+
+notifications:
+  email: false
+
+matrix:
+  include:
+    - python: 3.6
+      env:
+      - MPI4PY_VERSION=2.0.0
+    - python: 3.7
+      env:
+      - MPI4PY_VERSION=2.0.0
+    - python: 3.8
+      env:
+      - MPI4PY_VERSION=2.0.0
+    - python: 3.9
+      env:
+      - MPI4PY_VERSION=2.0.0
+
+before_install:
+  - sudo apt-get install -y -q openmpi-bin libopenmpi-dev
+
+install:
+  - pip install mpi4py==$MPI4PY_VERSION
+script:
+  - mpiexec -n 5 python -m mpi4py.bench helloworld
