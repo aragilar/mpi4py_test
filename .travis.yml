@@ -18,7 +18,7 @@ matrix:
       - MPI4PY_VERSION=3.0.0
     - python: 3.9-dev
       env:
-      - MPI4PY_VERSION=3.0.2
+      - MPI4PY_VERSION=3.0.3
 
 before_install:
   - sudo apt-get install -y -q openmpi-bin libopenmpi-dev
